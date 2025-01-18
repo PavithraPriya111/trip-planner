@@ -1,0 +1,109 @@
+<div class="slideshow-container" *ngIf="places?.length === 0">
+  <div class="question-container fade">
+    <div class="question">Where do you want to spend your Holidays?</div>
+    <input class="place-input" matInput placeholder="Ex. Chennai" [(ngModel)]="selectedPlace"  />
+    <button class="primary-btn next-btn" (click)="plusSlides(1)">Next</button>
+  </div>
+  <div class="question-container fade">
+    <div class="question">How many days you are planning to enjoy the holidays</div>
+    <input matInput placeholder="Ex. 1-7" maxlength="7" [(ngModel)]="selectedDays" />
+    <button class="primary-btn next-btn" (click)="plusSlides(-1)">Previous</button>
+    <button class="primary-btn next-btn" (click)="onSubmit()">Submit</button>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div *ngIf="places?.length>0">
+    <mat-tab-group>
+      <mat-tab label="Places">
+        <div class="destinations">
+          <div class="flex destDayBox" *ngFor="let pps of places, index as i">
+            <div class="day">Places to visit in Day {{i+1}}</div>
+            <div class="destBox" *ngFor="let place of pps"  >
+              <div class="img-container">
+                <img src="{{place.mySrc}}">
+                <i *ngIf="!place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart-o white icon-heart"></i>
+                <i *ngIf="place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart red icon-heart"></i>
+              </div>
+              <div class="name">{{place.name}}</div>
+              <div class="adr_address" (click)="destMapOpen(place)">{{place.formatted_address}}</div>
+            </div>
+          </div>
+          <div *ngIf ="this.otherPlaces?.length">
+            <div class="day">Other places to Visit</div>
+            <div class="flex destDayBox">
+              <div class="destBox" *ngFor="let place of otherPlaces, index as i">
+                  <div class="img-container">
+                    <img src="{{place.mySrc}}">
+                    <i *ngIf="!place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart-o white icon-heart"></i>
+                    <i *ngIf="place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart red icon-heart"></i>
+                  </div>
+                  <div class="name">{{place.name}}</div>
+                  <div class="adr_address" (click)="destMapOpen(place)">{{place.formatted_address}}</div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Restaurants">
+        <div class="destinations">
+          <div class="destBox" *ngFor="let rest of restaurants" (click)="destMapOpen(rest)" >
+            <div class="img-container">
+              <img src="{{rest.mySrc}}">
+              <i [ngClass]="rest.isFavourite ? 'red' : 'white'" (click)="addorRemoveToFav(rest)" class="fa fa-heart icon-heart"></i>
+            </div>
+              <div class="name">{{rest.name}}</div>
+            <div class="name">{{rest.name}}</div>
+            <div class="rating">
+              <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 0}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 1.5}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 2.5}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 3.5}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 4.5}"></span>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Hotels/Resorts">
+        <div class="destinations">
+          <div class="destBox" *ngFor="let hotel of hotels" (click)="destMapOpen(hotel)" >
+            <div class="img-container">
+              <img src="{{hotel.mySrc}}">
+              <i *ngIf="!hotel.isFavourite" (click)="addorRemoveToFav(hotel)" class="fa fa-heart-o black icon-heart"></i>
+              <i *ngIf="hotel.isFavourite" (click)="addorRemoveToFav(hotel)" class="fa fa-heart red icon-heart"></i>
+            </div>
+            <div class="name">{{hotel.name}}</div>
+            <div class="rating">
+              <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 0}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 1}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 2}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 3}"></span>
+              <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 4}"></span>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Transit">
+        <h4>Airports</h4>
+        <div class="destinations">
+          <div class="destBox" *ngFor="let airport of airports" (click)="destMapOpen(airport)" >
+            <div class="name">{{airport.name}}</div>
+            <img src="{{airport.mySrc}}">
+          </div>
+        </div>
+        <h4>Other Transits</h4>
+        <div class="destinations">
+          <div class="destBox" *ngFor="let transport of transports" (click)="destMapOpen(transport)" >
+            <div class="name">{{transport.name}}</div>
+            <img src="{{transport.mySrc}}">
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+
+
+  </div>
+</div>

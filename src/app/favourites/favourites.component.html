@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="destinations">
+    <div class="destBox" *ngFor="let place of favourites" >
+      <div class="img-container">
+        <img src="{{place.mySrc}}">
+        <i class="fa fa-times-circle white icon-close" (click)="removeFromFavs(place.place_id)" ></i>
+      </div>
+      <div class="name">{{place.name}}</div>
+      <div class="adr_address" (click)="destMapOpen(place)">{{place.formatted_address}}</div>
+    </div>
+  </div>
+</div>

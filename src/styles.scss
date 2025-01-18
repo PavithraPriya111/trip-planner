@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0;
+  font-family: "Noto Sans", sans-serif !important;
+  font-optical-sizing: auto;
+}
+
+input {
+  padding: 8px 10px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+}
+
+input:focus,input:focus-visible {
+  border: 1px solid #a900a9 !important;
+  outline: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.red {
+  color: red !important;
+}
+
+.white {
+  color: white !important;
+}
+
+.black {
+  color: black !important;
+}
+
+//mat modification
+.place-input {
+  width: 40%;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab .mdc-tab__text-label {
+  color: #a900a9 !important;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  font-weight: 800;
+}
+
+.primary-btn {
+  background: rgba(102,0,153,0.6);
+  padding: 8px 20px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.container {
+  padding-top: 150px;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.destDayBox {
+  flex-wrap: wrap;
+}
+.day {
+  width: 100%;
+  font-weight: 600;
+  padding: 30px;
+}
+.destBox {
+  box-sizing: border-box;
+  margin: 10px 30px;
+  max-width: 310px;
+  height:auto;
+  cursor: pointer;
+  img {
+    width: 250px;
+    height: 270px;
+    max-width: 250px;
+    max-height: 270px;
+    border-radius: 20px;
+  }
+  .name {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 260px;
+  }
+  .adr_address{
+    font-weight: 400;
+    color: grey;
+    padding-left: 10px;
+    max-width: 250px;
+    font-size: 13px;
+  }
+  .rating {
+    padding-left: 10px;
+  }
+}
+.destinations {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+}
+
+.checked {
+  color: orange;
+}
+
+.img-container {
+  position: relative;
+  width: 270px;
+}
+
+.icon-heart, .icon-close {
+  color: white;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  font-size: 25px;
+}
