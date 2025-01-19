@@ -25,7 +25,7 @@
                 <i *ngIf="!place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart-o white icon-heart"></i>
                 <i *ngIf="place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart red icon-heart"></i>
               </div>
-              <div class="name">{{place.name}}</div>
+              <div class="name" (click)="destMapOpen(place)">{{place.name}}</div>
               <div class="adr_address" (click)="destMapOpen(place)">{{place.formatted_address}}</div>
             </div>
           </div>
@@ -38,7 +38,7 @@
                   <i *ngIf="!place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart-o white icon-heart"></i>
                   <i *ngIf="place.isFavourite" (click)="addorRemoveToFav(place)" class="fa fa-heart red icon-heart"></i>
                 </div>
-                  <div class="name">{{place.name}}</div>
+                  <div class="name" (click)="destMapOpen(place)">{{place.name}}</div>
                   <div class="adr_address" (click)="destMapOpen(place)">{{place.formatted_address}}</div>
             </div>
             </div>
@@ -47,14 +47,13 @@
       </mat-tab>
       <mat-tab label="Restaurants">
         <div class="destinations">
-          <div class="destBox" *ngFor="let rest of restaurants" (click)="destMapOpen(rest)" >
+          <div class="destBox" *ngFor="let rest of restaurants" >
             <div class="img-container">
               <img src="{{rest.mySrc}}">
               <i *ngIf="!rest.isFavourite" (click)="addorRemoveToFav(rest)" class="fa fa-heart-o white icon-heart"></i>
               <i *ngIf="rest.isFavourite" (click)="addorRemoveToFav(rest)" class="fa fa-heart red icon-heart"></i>
             </div>
-              <div class="name">{{rest.name}}</div>
-            <div class="name">{{rest.name}}</div>
+            <div class="name" (click)="destMapOpen(rest)">{{rest.name}}</div>
             <div class="rating">
               <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 0}"></span>
               <span class="fa fa-star" [ngClass]="{'checked': rest.rating > 1.5}"></span>
@@ -67,13 +66,13 @@
       </mat-tab>
       <mat-tab label="Hotels/Resorts">
         <div class="destinations">
-          <div class="destBox" *ngFor="let hotel of hotels" (click)="destMapOpen(hotel)" >
+          <div class="destBox" *ngFor="let hotel of hotels" >
             <div class="img-container">
               <img src="{{hotel.mySrc}}">
               <i *ngIf="!hotel.isFavourite" (click)="addorRemoveToFav(hotel)" class="fa fa-heart-o white icon-heart"></i>
               <i *ngIf="hotel.isFavourite" (click)="addorRemoveToFav(hotel)" class="fa fa-heart red icon-heart"></i>
             </div>
-            <div class="name">{{hotel.name}}</div>
+            <div class="name" (click)="destMapOpen(hotel)">{{hotel.name}}</div>
             <div class="rating">
               <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 0}"></span>
               <span class="fa fa-star" [ngClass]="{'checked': hotel.rating > 1}"></span>
@@ -87,16 +86,16 @@
       <mat-tab label="Transit">
         <h4>Airports</h4>
         <div class="destinations">
-          <div class="destBox" *ngFor="let airport of airports" (click)="destMapOpen(airport)" >
-            <div class="name">{{airport.name}}</div>
+          <div class="destBox" *ngFor="let airport of airports" >
             <img src="{{airport.mySrc}}">
+            <div class="name" (click)="destMapOpen(airport)">{{airport.name}}</div>
           </div>
         </div>
         <h4>Other Transits</h4>
         <div class="destinations">
-          <div class="destBox" *ngFor="let transport of transports" (click)="destMapOpen(transport)" >
-            <div class="name">{{transport.name}}</div>
+          <div class="destBox" *ngFor="let transport of transports" >
             <img src="{{transport.mySrc}}">
+            <div class="name" (click)="destMapOpen(transport)">{{transport.name}}</div>
           </div>
         </div>
       </mat-tab>
