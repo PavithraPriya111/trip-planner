@@ -75,7 +75,6 @@ input:focus,input:focus-visible {
   margin: 10px 30px;
   max-width: 310px;
   height:auto;
-  cursor: pointer;
   img {
     width: 250px;
     height: 270px;
@@ -88,6 +87,7 @@ input:focus,input:focus-visible {
     font-size: 14px;
     font-weight: 600;
     max-width: 260px;
+    cursor: pointer;
   }
   .adr_address{
     font-weight: 400;
@@ -95,6 +95,7 @@ input:focus,input:focus-visible {
     padding-left: 10px;
     max-width: 250px;
     font-size: 13px;
+    cursor: pointer;
   }
   .rating {
     padding-left: 10px;
